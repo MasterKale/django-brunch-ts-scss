@@ -10,15 +10,19 @@ For now I've settled on [Brunch.io](http://brunch.io/) and a couple of additiona
 
 The only thing that needs to be added/updated is the value of `djangoAppName` in `package.json`. `brunch-config.js` relies on this to find the files for compilation, and also to strip the app name out of the paths that are registered for each TypeScript file when they're converted into CommonJS modules.
 
+The package.json scripts also assume that the Python virtual environment is located in `./venv/`. You can freely update these paths as needed.
+
 ### Serving files for Development
 
 Brunch and Django can be run side-by-side during development. Just run `npm start` in one tab, and `python manage.py runserver` in another tag. Django's `{% static ... %}` notation can be used in templates as usual.
 
 ### Serving files for Production
 
-To concat, minify, and uglify everything for production, run `build.sh`. It runs `brunch build --prod` and follows up with Django's `collectstatic` command. Source maps are ignored by the staticfiles collector.
+To concat, minify, and uglify everything for production , run `npm run build`. It runs `brunch build --prod` and follows up with Django's `collectstatic` command. Source maps are ignored by the staticfiles collector.
 
-Other than that you're free to structure your `.ts` and `.s[ac]ss` files however you want within your app.
+> NOTE: There's a **Windows-specific** build script - run `npm run build-win` instead
+
+Other than that you're free to structure your `.ts` and `.s[ac]ss` files within your app as you please.
 
 ### Calling a TypeScript module from within a template
 
@@ -34,7 +38,7 @@ The file will be executed upon page load.
 
 ES6 imports work as expected, too:
 
-	# foo.ts
+	# ./foo.ts
 	export class Foo {
 		bar: string;
 		constructor(bar: string) {
@@ -46,7 +50,7 @@ ES6 imports work as expected, too:
 		}
 	}
 
-	# index/index.ts
+	# ./index/index.ts
 	import { Foo } from '../foo';
 
 	let foo = new Foo('hello');
