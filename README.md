@@ -8,9 +8,9 @@ Figure out how to cleanly integrate TypeScript and SCSS into a Django app.
 
 For now I've settled on [Brunch.io](http://brunch.io/) and a couple of additional plugins. All required dependencies are listed in `package.json`.
 
-The only thing that needs to be added/updated is the value of `djangoAppName` in `package.json`. `brunch-config.js` relies on this to find the files for compilation, and also to strip the app name out of the paths that are registered for each TypeScript file when they're converted into CommonJS modules.
+The only thing that might need to be customized is the value of `watchDirectory` in `brunch-config.js`. Brunch relies on this to find the files for compilation, and also to strip out the folder name from the paths that are registered for each TypeScript file when they're converted into CommonJS modules.
 
-The package.json scripts also assume that the Python virtual environment is located in `./venv/`. You can freely update these paths as needed.
+Additionally, `package.json` scripts also assume that the Python virtual environment is located in `./venv/`. You can freely update these paths as needed.
 
 ### Serving files for Development
 
@@ -22,7 +22,7 @@ To concat, minify, and uglify everything for production , run `npm run build`. I
 
 > NOTE: There's a **Windows-specific** build script - run `npm run build-win` instead
 
-Other than that you're free to structure your `.ts` and `.s[ac]ss` files within your app as you please.
+Other than that you're free to structure your `.ts` and `.scss` files within your app as you please.
 
 ### Calling a TypeScript module from within a template
 

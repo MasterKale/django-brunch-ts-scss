@@ -1,6 +1,5 @@
 {
   "name": "dpts",
-  "djangoAppName": "website",
   "version": "1.0.1",
   "description": "Brunch with TypeScript & SASS",
   "scripts": {
