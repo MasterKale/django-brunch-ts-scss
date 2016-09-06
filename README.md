@@ -10,7 +10,7 @@ For now I've settled on [Brunch.io](http://brunch.io/) and a couple of additiona
 
 The only thing that might need to be customized is the value of `watchDirectory` in `brunch-config.js`. Brunch relies on this to find the files for compilation, and also to strip out the folder name from the paths that are registered for each TypeScript file when they're converted into CommonJS modules.
 
-Additionally, `package.json` scripts also assume that the Python virtual environment is located in `./venv/`. You can freely update these paths as needed.
+Additionally, `package.json` scripts also assume that the Python virtual environment is located in `../venv/`. You can freely update these paths as needed.
 
 ### Serving files for Development
 

@@ -5,8 +5,8 @@
   "scripts": {
     "start": "brunch watch --server",
     "prod": "brunch build --production",
-    "build": "npm run prod && venv/bin/python manage.py collectstatic --ignore *.map --noinput",
-    "build-win": "npm run prod && \"venv\\Scripts\\python.exe\" manage.py collectstatic --ignore *.map --noinput"
+    "build": "npm run prod && ../venv/bin/python ../manage.py collectstatic --ignore *.map --noinput",
+    "build-win": "npm run prod && \"..\\venv\\Scripts\\python.exe\" ..\\manage.py collectstatic --ignore *.map --noinput"
   },
   "devDependencies": {
     "brunch": "^2.5.3",
